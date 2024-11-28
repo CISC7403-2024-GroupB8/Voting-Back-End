@@ -21,6 +21,10 @@ def get_db_connection():
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Welcome to the Voting API!"
+
 @app.route("/vote", methods=["POST"])
 def vote():
     data = request.get_json()
@@ -58,7 +62,7 @@ def get_results():
     for row in results:
         option_name = row[0]
         vote_number = row[1]
-        percentage = (vote_number / total_votes) * 100 if total_voves > 0 else 0
+        percentage = (vote_number / total_votes) * 100 if total_votes > 0 else 0
         last_vote = row[2]
         result_data.append(
             {
