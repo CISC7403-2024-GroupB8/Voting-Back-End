@@ -16,10 +16,7 @@ def get_db_connection():
     db_name = os.environ.get("POSTGRES_DB")
 
     conn = psycopg2.connect(
-        host="localhost",
-        database=db_name,
-        user=user,
-        password=password
+        host="localhost", database=db_name, user=user, password=password
     )
     return conn
 
@@ -102,7 +99,7 @@ def get_results():
                 "vote_number": vote_number,
                 "percentage": percentage,
                 "last_vote": last_vote,
-                "total_votes": total_votes  # 新增，可根据需求决定是否保留在返回结果中
+                "total_votes": total_votes,  # 新增，可根据需求决定是否保留在返回结果中
             }
         )
 
